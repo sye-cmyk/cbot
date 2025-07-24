@@ -1,0 +1,35 @@
+<ChatBot>:
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        Label:
+            id: chat_label
+            text: root.chat_history
+            font_size: 16
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            halign: 'left'
+            valign: 'top'
+            color: 1,1,1,1
+
+    BoxLayout:
+        size_hint_y: None
+        height: 50
+        spacing: 5
+
+        TextInput:
+            id: user_input
+            hint_text: "Type your message..."
+            multiline: False
+            font_size: 16
+
+        Button:
+            text: "Send"
+            size_hint_x: None
+            width: 80
+            on_press: root.send_message()
